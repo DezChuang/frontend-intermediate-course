@@ -20,4 +20,4 @@ static, relative, fixed, absolute
 * 最底部container與body間的不知名空白
 
 ## Demo
-https://dezchuang.github.io/frontend-intermediate-course/answers/hw1/
+https://dezchuang.github.io/frontend-intermediate-course/answers/hw1/index.html

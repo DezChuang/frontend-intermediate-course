@@ -1,0 +1,93 @@
+body {
+  background-image: url(../img/bg-default.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  white-space: nowrap;      /* no newline */
+  overflow: hidden;         /* crop text */
+  text-overflow: ellipsis;  /* ... */
+}
+
+.bgmask {
+  display: inline-block; /*why*/
+  background: rgba(0, 0, 0, .5);
+  background-size: cover;
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 1000px;
+  margin:0 auto;
+}
+
+.stream-item:hover {
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 5px 5px 20px 2.5px rgba(50, 50, 50, 1);
+
+  filter: contrast(125%) brightness(150%);
+  /*filter: hue-rotate(90deg);*/
+  /*filter: saturate(30%);*/
+  /*filter: brightness(1.5);*/
+  /*filter: contrast(150%);*/
+
+  transition: box-shadow .25s, filter .5s;
+
+}
+
+.stream-item {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 30%;
+  float: left;
+  margin: 1.66%;
+  padding: 0;
+}
+
+.thumbnail {
+  content: url(../img/thn-default.jpg);
+  width: 300px;
+}
+
+.meta {
+  display: inline-block;
+  height: 69px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.avatar {
+  display: inline-block;
+  content: url(../img/avt-default.png);
+  opacity: .75;
+  width: 45px;
+  height: 45px;
+  margin: 10px 10px;
+  border-radius: 50%;
+}
+
+.content {
+  float: right;
+  width: 230px;
+  height: 65px;
+  margin-left: 5px;
+}
+
+.content p {
+  color: white;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0.35px;
+  margin: 5px;
+}
+

@@ -1,5 +1,5 @@
 body {
-  background-image: url(../img/bg-def.jpg);
+  background-image: url(../img/bg-default.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -7,36 +7,43 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
-.container {
+p {
+  white-space: nowrap;      /* no newline */
+  overflow: hidden;         /* crop text */
+  text-overflow: ellipsis;  /* ... */
+}
+
+.bgmask {
+  display: inline-block; /*why*/
   background: rgba(0, 0, 0, .5);
   background-size: cover;
   z-index: -1;
   top: 0;
-  left: 0;
   height: 100%;
   width: 100%;
-  display: inline-block;
+}
+
+.container {
+  width: 1000px;
+  margin:0 auto;
 }
 
 .stream-item {
   box-sizing: border-box;
-  display: inline-block;
-  /*float: right;*/
-  width: 300px;
+  width: 30%;
   float: left;
-  margin: 1.66vw;
+  margin: 1.66%;
   padding: 0;
-  /*border: solid blue 3px;*/
 }
 
 .thumbnail {
-  width: 300px;
   box-sizing: border-box;
+  content: url(../img/thn-default.jpg);
+  width: 300px;
 }
 
 .meta {
@@ -44,30 +51,29 @@ body {
   height: 65px;
   background-color: black;
   opacity: .5;
-  /*border: solid red 3px;*/
 }
 
 .avatar {
-  position: relative;
-  display: inline;
+  content: url(../img/avt-default.png);
   float: left;
-  vertical-align: top;
   opacity: 1;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   margin: 10px 10px;
   border-radius: 50%;
-  /*border: solid green 3px;*/
 }
 
 .content {
-  display: inline-block;
-  line-height: 10px;
-  letter-spacing: 0.35px;
-  font-size: 15px;
+  width: 230px;
+  height: 65px;
+  margin-left: 5px;
+}
+
+.content p {
   color: white;
-  margin-left: 10px auto;
-  vertical-align: top;
-  /*border: solid black 3px;*/
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0.35px;
+  margin: 5px;
 }
 

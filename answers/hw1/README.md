@@ -66,7 +66,7 @@ em, strong {
 <br>
 
 ### 5.當我設定一個元素的width為300px，並且padding設成10px之後，這個元素的寬度應該會是多少？
->300px， margin是外邊距、padding是內邊距。
+>320px， 可使用`box-sizing:border-box`預設為300px
 
 <br>
 

@@ -42,13 +42,12 @@ I. performance不佳
 
 II. 使用`transition: all`意義為「所有transition效果共享同樣的延續時間以及速率變換方式」，有時候會因為載入速度不一致而造成UX不佳
 
+>Yes, using `transition: all` could cause major drawbacks in performance. There can be a lot of cases where the browser would look if it needs to make a transition, even if user won't see it, like the color changes, dimension changes etc.
 >
-Yes, using `transition: all` could cause major drawbacks in performance. There can be a lot of cases where the browser would look if it needs to make a transition, even if user won't see it, like the color changes, dimension changes etc.
-
 >The simplest example I can think of is this: http://dabblet.com/gist/1657661 — try to change the zoom level or the font's size and you'll see that everything become animated.Of course there couldn't be a lot of such user interactions, but there could be some interface changes that can cause the reflow and repaints in some blocks, that could tell the browser to try and animate those changes.
-
+>
 >So, in general, it's recommended that you won't use the transition: all and would use the direct transitions instead.
-
+>
 >There are some other things that can go wrong with the all transitions, like the splash of animation on page load, where it would at first render the initial styles for blocks and then apply the style with an animation. In a lot of cases it wouldn't be the thing that you want :)
 
 

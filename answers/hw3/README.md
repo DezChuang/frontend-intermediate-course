@@ -1,7 +1,10 @@
 
 # HW3 - 寫 CSS 必備神器：CSS 預處理器
 
-## Properties
+## 本章Properties
+* 使用sass重構，並使用Prepros編譯成css
+
+## 其他Properties
 * 遮罩重構:
 
 ```
@@ -35,6 +38,8 @@ background-image: linear-gradient( rgba(0, 0, 0, .5), rgba(0, 0, 0, .5) ), url(.
 <br>
 
 ## References
+https://github.com/gonsakon/Learn-Sass-in-90-days
+
 
 <br>
 

@@ -24,6 +24,7 @@ background-image: linear-gradient( rgba(0, 0, 0, .5), rgba(0, 0, 0, .5) ), url(.
 ```
 
 * 利用HW1教的flex重構排版
+* 增加空白`stream-item`使每個元素在視窗縮放時對齊
 
 
 ## Question Set
@@ -38,6 +39,20 @@ background-image: linear-gradient( rgba(0, 0, 0, .5), rgba(0, 0, 0, .5) ), url(.
 <br>
 
 ## Troubleshooting
+* `.container`無法用`margin: 0 auto`置中
+
+```
+.container {
+  position: absolute;
+  left: 12.5%;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 72%;
+}
+```
+
 
 <br>
 

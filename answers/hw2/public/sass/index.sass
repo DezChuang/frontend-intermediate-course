@@ -30,14 +30,15 @@ body
 .stream-item:hover
   box-shadow: 5px 5px 20px 2.5px rgba(50, 50, 50, 1)
   filter: contrast(125%) brightness(150%)
-  transition: box-shadow .25s, filter .5s
 
-#special:hover
+
+#special
   transition-delay: 1s
 
 .stream-item
   box-sizing: border-box
   margin: 20px 1.66%;
+  transition: box-shadow .25s, filter .5s
 
 .preview
   box-sizing: border-box
@@ -48,12 +49,10 @@ body
   display: flex
   box-sizing: border-box
   background-color: rgba(0, 0, 0, .5)
+  transition: background-color .25s
 
 .content:hover
     background-color: rgba(0, 0, 0, 1)
-    transition: background-color .25s
-
-
 
 .avatar
   box-sizing: border-box

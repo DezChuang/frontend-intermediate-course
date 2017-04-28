@@ -30,17 +30,17 @@ body {
 .stream-item:hover {
   box-shadow: 5px 5px 20px 2.5px #323232;
   -webkit-filter: contrast(125%) brightness(150%);
-  filter: contrast(125%) brightness(150%);
-  transition: box-shadow .25s, -webkit-filter .5s;
-  transition: box-shadow .25s, filter .5s;
-  transition: box-shadow .25s, filter .5s, -webkit-filter .5s; }
+  filter: contrast(125%) brightness(150%); }
 
-#special:hover {
+#special {
   transition-delay: 1s; }
 
 .stream-item {
   box-sizing: border-box;
-  margin: 20px 1.66%; }
+  margin: 20px 1.66%;
+  transition: box-shadow .25s, -webkit-filter .5s;
+  transition: box-shadow .25s, filter .5s;
+  transition: box-shadow .25s, filter .5s, -webkit-filter .5s; }
 
 .preview {
   box-sizing: border-box;
@@ -52,11 +52,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color .25s; }
 
 .content:hover {
-  background-color: black;
-  transition: background-color .25s; }
+  background-color: black; }
 
 .avatar {
   box-sizing: border-box;

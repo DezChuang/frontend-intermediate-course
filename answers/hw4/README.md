@@ -1,6 +1,9 @@
 
 # HW4 - 從假資料到真資料：Ajax 與 API 串接
 
+## Properties
+* 移除`.container`的`justify-content: space-around`使最下方對齊
+
 ## Question Set
 
 ### 1.HTTP method 有哪幾個？有什麼不一樣？
@@ -22,6 +25,8 @@
 <br>
 
 ## Troubleshooting
+* `preview`與`content`間空白需修復
+
 
 <br>
 

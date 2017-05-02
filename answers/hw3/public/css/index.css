@@ -1,46 +1,48 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+  font-family: 'Noto Sans TC', sans-serif; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
 body {
-  /*Add half-black mask background using linear-gradient*/
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg-default.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0; }
+  background-attachment: fixed; }
 
 .container {
-  position: absolute;
-  left: 12.5%;
   box-sizing: border-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  width: 72%; }
+  margin: 0 auto;
+  width: 1000px; }
 
-.stream-item:hover {
-  box-shadow: 5px 5px 20px 2.5px #323232;
-  -webkit-filter: contrast(125%) brightness(150%);
-  filter: contrast(125%) brightness(150%);
+.stream-item {
+  box-sizing: border-box;
+  margin: 20px 1.66%;
   transition: box-shadow .25s, -webkit-filter .5s;
   transition: box-shadow .25s, filter .5s;
   transition: box-shadow .25s, filter .5s, -webkit-filter .5s; }
 
-#special:hover {
-  transition-delay: 1s; }
+.stream-item:hover {
+  box-shadow: 5px 5px 20px 2.5px #323232;
+  -webkit-filter: contrast(125%) brightness(150%);
+  filter: contrast(125%) brightness(150%); }
 
-.stream-item {
-  box-sizing: border-box;
-  margin: 20px 1.66%; }
+#special {
+  transition-delay: 1s; }
 
 .preview {
   box-sizing: border-box;
@@ -52,11 +54,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color .25s; }
 
 .content:hover {
-  background-color: black;
-  transition: background-color .25s; }
+  background-color: black; }
 
 .avatar {
   box-sizing: border-box;

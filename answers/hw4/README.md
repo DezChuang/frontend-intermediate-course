@@ -5,6 +5,7 @@
 * 移除`.container`的`justify-content: space-around`使最下方對齊
 * 串接 [Twitch API](https://dev.twitch.tv/docs/v5/reference/streams/#get-live-streams)
 * 使用jQuery的	`$.ajax()`來做asynchronous HTTP (Ajax) request
+* 從影片中學到ES6語法" ` "可讓jQuery包住的HTML內容更容易維護
 
 ## Question Set
 
@@ -154,3 +155,31 @@ JSON（JavaScript Object Notation）是個以純文字為基底去儲存和傳�
 
 ## Demo
 https://dezchuang.github.io/frontend-intermediate-course/answers/hw4/index.html
+
+
+## 筆記
+
+1. API（Application Programming Interface，應用程式介面），簡單解釋 API 是可以存取、交換資料的地方。
+
+2. Ajax (Asynchronous JavaScript and XML)：拿到 API 資料後還要利用 Ajax 在瀏覽器呼叫出 API 的資料，可以透過瀏覽器提供的 `XMLHttpRequest` 或 jQuery 中 `$.ajax` 來呼叫 API。`$.ajax` 的底層其實也是用 `XMLHttpRequest`。
+
+Ajax 最重要的是「異步」執行的概念，利用 Ajax 技術，瀏覽器不需要等待 API response 回來才執行其他程式碼。但程式碼是由上往下執行的，要如何在不等待 API response 的情況下，還能回頭執行我們要 API 資料做的事情？所以就必須利用 callback function（回呼函式），在做異步的時候，會先略過需要等待 API 資料才能執行的函式（會放在 callback function 中），先執行後面的程式碼，然後等到 API 資料回來後才執行 callback function。
+
+3. 同源政策 (same-origin policy) 限制的解決方法。
+並非所有 API 都可以利用 Ajax 的技術來存取資料，有些 API 資料基於安全考量會有跨網域限制。
+
+要解決跨網域限制有兩個方法：
+1)  JSONP (JSON with Padding):
+原理是 `script` 標籤可以跨網域，在 HTML 裡面有幾個標籤不受到跨網域的限制，`script` 是其中一個。
+
+可以在 HTML 裡引入 API URL 到 `script` 裡，然後定義 callback function 的參數，在 JavaScript 檔案裡用 callback function 呼叫出 JSONP 的資料。或是直接在 JavaScript 檔案裡引入 API URL 再利用 callback function 也可以。但是一般不建議使用 JSONP，因為如果引入 `script` 的網站遭駭客入侵，自身的網站也會受到影響。
+
+2) CORS (cross-origin resource sharing):
+在 Response Header 中 Access-Control-Allow-Origin 可以看到 API 資料是否有開放跨網域存取。
+
+跨網域存取分成：
+a. 簡單請求：只允許 `GET`、`HEAD`、`POST` 這三個方法。
+
+b. 先導請求 (Preflight Request)：先以 HTTP 的 OPTIONS 方法送出 request 到另一個網域，確定 Access-Control-Allow-Origin 沒問題後，才送出真正的 response 到此網域中。所以會發生送出一個 request 但有兩個 response，先導請求是瀏覽器驗證是否有開放跨網域存取的方法。如果想要避免先導請求多產生出來的 response，可以取消字定義的標頭（例如 `setRequestHeader`）就可以解決了。
+
+不過，要是遠端伺服器沒有開放跨網域存取，不管用什麼方法瀏覽器都沒辦法存取資料的。

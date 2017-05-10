@@ -35,10 +35,12 @@ body
 
 .stream-item
   box-sizing: border-box
+  display: inline-block
   margin: 20px 1.66%
   transition: box-shadow .25s, filter .5s
 
 .stream-item:hover
+  cursor: pointer
   box-shadow: 5px 5px 20px 2.5px rgba(50, 50, 50, 1)
   filter: contrast(125%) brightness(150%)
 
@@ -47,8 +49,9 @@ body
 
 .preview
   box-sizing: border-box
-  // content: url(../img/thn-default.jpg)
-  width: 300px
+  img
+    width: 100%
+    height: 100%
 
 .content
   display: flex

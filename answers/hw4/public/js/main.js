@@ -11,16 +11,18 @@ $(document).ready(function () {
     success: function(data) {
       for(x = 0; x < 20; x++) {
         var $content =
-            "<div class='stream-item'>" +
-              "<img class='preview' src='" + data.streams[x].preview.medium + "'>" +
-              "<div class='content'>" +
-                "<img class='avatar' src='" + data.streams[x].channel.logo + "'>" +
-                "<div class='stream-text'>" +
-                  "<p class='title'>" + data.streams[x].channel.status + "</p>" +
-                  "<p class='streamer'>" + data.streams[x].channel.display_name + "</p>" +
-                "</div>"
-              "</div>" +
-            "</div>";
+        `<div class='stream-item'>
+          <div class='preview'>
+            <img src="${data.streams[x].preview.medium}">
+          </div>
+          <div class='content'>
+            <img class='avatar' src="${data.streams[x].channel.logo}">
+            <div class='stream-text'>
+              <p class='title'>${data.streams[x].channel.status}</p>
+              <p class='streamer'>${data.streams[x].channel.display_name}</p>
+            </div>
+          </div>
+        </div>`;
         $( ".container" ).append($content);
         $content = $();
       }

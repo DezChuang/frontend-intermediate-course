@@ -12,9 +12,7 @@ $(document).ready(function () {
       for(x = 0; x < 20; x++) {
         var $content =
         `<div class='stream-item'>
-          <div class='preview'>
-            <img src="${data.streams[x].preview.medium}">
-          </div>
+          <img class='preview' src="${data.streams[x].preview.medium}">
           <div class='content'>
             <img class='avatar' src="${data.streams[x].channel.logo}">
             <div class='stream-text'>

@@ -157,7 +157,7 @@ JSON（JavaScript Object Notation）是個以純文字為基底去儲存和傳�
 https://dezchuang.github.io/frontend-intermediate-course/answers/hw4/index.html
 
 
-## 筆記
+## pychiang大大的筆記
 
 1. API（Application Programming Interface，應用程式介面），簡單解釋 API 是可以存取、交換資料的地方。
 

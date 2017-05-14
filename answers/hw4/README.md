@@ -5,7 +5,7 @@
 * 移除`.container`的`justify-content: space-around`使最下方對齊
 * 串接 [Twitch API](https://dev.twitch.tv/docs/v5/reference/streams/#get-live-streams)
 * 使用jQuery的	`$.ajax()`來做asynchronous HTTP (Ajax) request
-* 從影片中學到ES6語法" ` "可讓jQuery包住的HTML內容更容易維護
+* 從影片中學到ES6語法[template strings](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals)可讓jQuery包住的HTML內容，更容易維護
 
 ## Question Set
 
@@ -124,9 +124,23 @@ JSON（JavaScript Object Notation）是個以純文字為基底去儲存和傳�
 ```
 
 ### 5.JSONP 是什麼？
+JSONP (JSON with Padding)，原理是 `script` 標籤可以跨網域，在 HTML 裡面有幾個標籤不受到跨網域的限制，`script` 是其中一個。
+
+可以在 HTML 裡引入 API URL 到 `script` 裡，然後定義 callback function 的參數，在 JavaScript 檔案裡用 callback function 呼叫出 JSONP 的資料。或是直接在 JavaScript 檔案裡引入 API URL 再利用 callback function 也可以。但是一般不建議使用 JSONP，因為如果引入 `script` 的網站遭駭客入侵，自身的網站也會受到影響。
+
 
 ### 6.要如何存取跨網域的 API？
+1. JSONP
+2. CORS (cross-origin resource sharing)
 
+	在 Response Header 中 Access-Control-Allow-Origin 可以看到 API 資料是否有開放跨網域存取。
+	
+	跨網域存取分成：
+	a. 簡單請求：只允許 `GET`、`HEAD`、`POST` 這三個方法。
+	
+	b. 先導請求 (Preflight Request)：先以 HTTP 的 OPTIONS 方法送出 request 到另一個網域，確定 Access-Control-Allow-Origin 沒問題後，才送出真正的 response 到此網域中。所以會發生送出一個 request 但有兩個 response，先導請求是瀏覽器驗證是否有開放跨網域存取的方法。如果想要避免先導請求多產生出來的 response，可以取消字定義的標頭（例如 `setRequestHeader`）就可以解決了。
+
+不過，要是遠端伺服器沒有開放跨網域存取，不管用什麼方法瀏覽器都沒辦法存取資料的。
 <br>
 
 ## References
@@ -137,6 +151,7 @@ JSON（JavaScript Object Notation）是個以純文字為基底去儲存和傳�
 * [[鐵人賽Day2] GET/POST 的差異與配合PHP用法](http://ithelp.ithome.com.tw/articles/10155801)
 * [瞭解JSON格式](http://j796160836.pixnet.net/blog/post/30530326-%E7%9E%AD%E8%A7%A3json%E6%A0%BC%E5%BC%8F)
 * [你不可不知的 JSON 基本介紹](https://blog.wu-boy.com/2011/04/%E4%BD%A0%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84-json-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9/)
+* pychiang大大的筆記 on Slack
 
 
 <br>
@@ -162,4 +177,4 @@ JSON（JavaScript Object Notation）是個以純文字為基底去儲存和傳�
 <br>
 
 ## Demo
-https://dezchuang.github.io/frontend-intermediate-course/answers/hw4/index.html
+[https://dezchuang.github.io/frontend-intermediate-course/answers/hw4/index.html](https://dezchuang.github.io/frontend-intermediate-course/answers/hw4/index.html)

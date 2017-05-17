@@ -35,16 +35,13 @@
 ## 直播筆記
 1. 模擬網路速度：可以透過dev-tool的network的no throttling，調整下拉選單來模擬各種網路速度
 2. placeholder
-	####方法一
-	
-	* 放兩張圖片(佔位圖、真圖)在同一個div，同一個位置(使用absolute、relative調整)
-	* 讓真圖蓋掉placeholder，使用relative的position
-	* 將真圖設置透明屬性：opacity=0
-	* 等真圖載入完成使用onload="this.style.opacity=1;(利用過場來達到載入效果)
-	
-	####方法二
-	
-	* 使用.preview:before將placeholder作為偽元素(記得加content)
+	* 方法一	
+		* 放兩張圖片(佔位圖、真圖)在同一個div，同一個位置(使用absolute、relative調整)
+		* 讓真圖蓋掉placeholder，使用relative的position
+		* 將真圖設置透明屬性：opacity=0
+		* 等真圖載入完成使用onload="this.style.opacity=1;(利用過場來達到載入效果)
+	* 方法二
+		* 使用.preview:before將placeholder作為偽元素(記得加content)
 
 3. 使用base64來優化載入圖片的速度，但缺點是圖片會變大約1.5倍，且最大只能到32k，適合拿來優化一些小圖
 4. Infinite scroll

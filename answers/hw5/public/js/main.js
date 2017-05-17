@@ -73,7 +73,7 @@ $(document).ready(function(){
   // Infinite scroll
   let timer;
   const reservedHeight = 100;
-  const timeout = 250;
+  const timeout = 100;
   $(window).scroll(function() {
     if(timer) {
       window.clearTimeout(timer);

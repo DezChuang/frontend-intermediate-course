@@ -9,7 +9,6 @@
 * 調整每次載入15個channel
 
 ---
-<br>
 
 ## Question Set
 
@@ -17,7 +16,6 @@
 * 使用[base64編碼](https://sofree.cc/base64-images/)，降低連線請求
 
 ---
-<br>
 
 ## References
 * [[優化]圖片轉成 Base64 編碼字串，降低連線請求](https://sofree.cc/base64-images/)
@@ -28,24 +26,24 @@
 * [CSS3 transform Property](https://www.w3schools.com/cssref/css3_pr_transform.asp)
 
 ---
-<br>
 
 ## Troubleshooting
 * avatar的placeholder會跑圖，設成`no-repeat center`或調整寬高都無法解
 
 ---
-<br>
 
 ## 直播筆記
 1. 模擬網路速度：可以透過dev-tool的network的no throttling，調整下拉選單來模擬各種網路速度
 2. placeholder
 	####方法一
+	
 	* 放兩張圖片(佔位圖、真圖)在同一個div，同一個位置(使用absolute、relative調整)
 	* 讓真圖蓋掉placeholder，使用relative的position
 	* 將真圖設置透明屬性：opacity=0
 	* 等真圖載入完成使用onload="this.style.opacity=1;(利用過場來達到載入效果)
 	
 	####方法二
+	
 	* 使用.preview:before將placeholder作為偽元素(記得加content)
 
 3. 使用base64來優化載入圖片的速度，但缺點是圖片會變大約1.5倍，且最大只能到32k，適合拿來優化一些小圖
@@ -65,8 +63,6 @@
 		* 管理offset這個參數，每次都抓新的channel
 
 ---
-<br>
-
 
 ## 後記
 從進入了js的作業後，難度開始提高了一些，也幫助我更理解了以前自學沒學到或是沒深入研究的地方，看到高手如雲的同學們寫的js，才發現自己有一點還不會走(js/jQuery)就去飛(React)的感覺，難怪我Redux看了好幾遍沒看懂。看了幾位同學們hw5的寫法都寫得好漂亮，像是miau715大大利用`timer = window.setTimeout(function()`的方法來控制infinite scroll的想法就很值得學習，便把code的邏輯弄懂後，整合到我的code裡，並參考Huli大大hw4解答的架構把我的一些function切的更細一點。
@@ -74,7 +70,6 @@
 也發現跟了幾次課程後，與以往自學看線上課程不一樣的收穫是，Huli讓我們先去蒐集資料並實作，其中會卡關會有無法解決的bug，最後才聽完直播講解後，發現是自己想太難了，真正的解法原來就是這麼簡單的道理等等，這樣有仔細思考後才豁然開朗的學習方式，是真的可以學到蠻多的。
 
 ---
-<br>
 
 ## Demo
 [https://dezchuang.github.io/frontend-intermediate-course/answers/hw5/index.html](https://dezchuang.github.io/frontend-intermediate-course/answers/hw5/index.html)

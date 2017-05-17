@@ -6,7 +6,6 @@
 * 參考Huli大大的placeholder寫法，並採用偽元素`:before`來做佔位圖
 * Refactor `main.js`，使用Huli作業四架構，將從twitch載入資料的每一步驟function化
 * 參考miau715的timer寫法來控制infinite scroll的request發送
-* 調整每次載入15個channel
 
 ---
 

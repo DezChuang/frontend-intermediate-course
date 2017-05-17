@@ -5,7 +5,7 @@ function loadDataFromAPI(callback){
   const myContentType = 'application/vnd.twitchtv.v5+json';
   const twitchApi = 'https://api.twitch.tv/kraken/streams/';
   const game = 'League of Legends';
-  const limit = 15;
+  const limit = 20;
   $.ajax({
     type: 'GET',
     url: twitchApi,
@@ -61,7 +61,7 @@ function appendData() {
       for(const stream of streams) {
         $container.append(templateData(stream));
       }
-      offset += 15;
+      offset += 20;
     }
   });
 }

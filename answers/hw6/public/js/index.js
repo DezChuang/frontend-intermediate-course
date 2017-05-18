@@ -54,9 +54,9 @@ function appendData() {
     } else {
       //ES6 syntax for `const streams = data.streams;`
       const {streams} = data;
-      const $container = $('.container');
+      const container = document.querySelector('.container');
       for(const stream of streams) {
-        $container.append(templateData(stream));
+        container.insertAdjacentHTML('beforeend', templateData(stream));
       }
       offset += 20;
     }

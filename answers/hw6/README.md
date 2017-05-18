@@ -47,6 +47,8 @@ xhr.send(null);
 +      if(document.body.scrollTop + window.innerHeight > document.body.scrollHeight - reservedHeight) {
 ```
 
+* 修正hw5時，avatar佔位圖無法正確顯示的issue，加上`background-size: 100% 100%`
+
 ---
 
 ## Question Set

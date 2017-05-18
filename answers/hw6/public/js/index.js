@@ -63,23 +63,36 @@ function appendData() {
   });
 }
 
-// main function
-$(document).ready(function(){
-  // Init 20 items from twitch API
-  appendData();
-  // Infinite scroll
+//$(document).ready
+function ready(fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+function infiniteScroll() {
   let timer;
   const reservedHeight = 100;
   const timeout = 100;
-  $(window).scroll(function() {
+  //$(window).scroll(function()
+  window.addEventListener('scroll', function() {
     if(timer) {
       window.clearTimeout(timer);
     }
     timer = window.setTimeout(function() {
-      if($(window).scrollTop() + $(window).height() > $(document).height() - reservedHeight) {
-          appendData();
-        // console.log($(".stream-item").length);
+      if(document.body.scrollTop + window.innerHeight > document.body.scrollHeight - reservedHeight) {
+        appendData();
       }
     }, timeout);
   });
+}
+
+// main function
+ready(() => {
+  // Init 20 items from twitch API
+  appendData();
+  // Infinite scroll
+  infiniteScroll();
 });

@@ -1,29 +1,26 @@
 let offset = 0;
 
 function loadDataFromAPI(callback){
+  const method = 'GET';
+  const baseURL = 'https://api.twitch.tv/kraken/streams/';
   const clientId = '5rdlf3sosdxy8kjprfx9lebgznkncf';
-  const myContentType = 'application/vnd.twitchtv.v5+json';
-  const twitchApi = 'https://api.twitch.tv/kraken/streams/';
   const game = 'League of Legends';
   const limit = 20;
-  $.ajax({
-    type: 'GET',
-    url: twitchApi,
-    data: {
-      contentType: myContentType,
-      client_id: clientId,
-      game: game,
-      limit: limit,
-      offset: offset
-    },
-    success: (data) => {
+  let twitchAPI = `${baseURL}?client_id=${clientId}&game=${game}&limit=${limit}&offset=${offset}`;
+  let xhr = new XMLHttpRequest();
+  xhr.open(method, twitchAPI, true);
+  xhr.onload = (data) => {
+    if (xhr.status >= 200 && xhr.status < 400) {
+      data = JSON.parse(xhr.responseText);
       callback(null, data);
-    },
-    error: (err) => {
+    } else {
       console.log(err);
-      callback(err);
     }
-  });
+  };
+  xhr.onerror = (err) => {
+    console.log(err);
+  };
+  xhr.send(null);
 }
 
 function templateData(data) {

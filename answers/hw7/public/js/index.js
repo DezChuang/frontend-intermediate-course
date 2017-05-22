@@ -1,4 +1,20 @@
 let offset = 0;
+// let title = appendTitle('zh-TW');
+let title = document.getElementById("title");
+const zhBtn = document.getElementById("zhBtn");
+const enBtn = document.getElementById("enBtn");
+
+zhBtn.addEventListener("click", function(){
+  enBtn.classList.remove("selected");
+  this.classList.add("selected");
+  i18nTitle('zh-tw');
+});
+
+enBtn.addEventListener("click", function(){
+  zhBtn.classList.remove("selected");
+  this.classList.add("selected");
+  i18nTitle('en-us');
+});
 
 function loadDataFromAPI(callback){
   const method = 'GET';
@@ -23,9 +39,23 @@ function loadDataFromAPI(callback){
   xhr.send(null);
 }
 
+function i18nTitle(lang){
+  jQuery.i18n.properties({
+    name:'Messages',
+    path:'public/bundle/',
+    mode:'both',
+    language:lang,
+    async: true,
+    callback: function() {
+        jQuery.i18n.prop('msg_title');
+        title.textContent = msg_title;
+    }
+  });
+}
+
 function templateData(data) {
-  var avatarSrc = data.channel.logo;
-  var previewSrc = data.preview.medium;
+  const avatarSrc = data.channel.logo;
+  const previewSrc = data.preview.medium;
   if(avatarSrc == null){
     avatarSrc = "public/img/avt-default.png";
   }
@@ -93,6 +123,7 @@ function infiniteScroll() {
 ready(() => {
   // Init 20 items from twitch API
   appendData();
+  console.log(title);
   // Infinite scroll
   infiniteScroll();
 });

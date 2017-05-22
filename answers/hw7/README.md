@@ -15,7 +15,11 @@
 ---
 
 ## References
-
+* http://stackoverflow.com/questions/3084675/how-does-internationalization-work-in-javascript
+* http://stackoverflow.com/questions/2701749/rails-internationalization-of-javascript-strings
+* https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html
+* https://github.com/jquery-i18n-properties/jquery-i18n-properties
+* https://github.com/cocos-creator-packages/i18n
 
 ---
 

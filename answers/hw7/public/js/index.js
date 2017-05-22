@@ -1,4 +1,5 @@
 let offset = 0;
+let language = 'zh-tw';
 // let title = appendTitle('zh-TW');
 let title = document.getElementById("title");
 const zhBtn = document.getElementById("zhBtn");
@@ -8,35 +9,42 @@ zhBtn.addEventListener("click", function(){
   enBtn.classList.remove("selected");
   this.classList.add("selected");
   i18nTitle('zh-tw');
+  language = 'zh-tw';
 });
 
 enBtn.addEventListener("click", function(){
   zhBtn.classList.remove("selected");
   this.classList.add("selected");
   i18nTitle('en-us');
+  language = 'en';
 });
 
 function loadDataFromAPI(callback){
-  const method = 'GET';
-  const baseURL = 'https://api.twitch.tv/kraken/streams/';
   const clientId = '5rdlf3sosdxy8kjprfx9lebgznkncf';
+  const myContentType = 'application/vnd.twitchtv.v5+json';
+  const twitchApi = 'https://api.twitch.tv/kraken/streams/';
   const game = 'League of Legends';
   const limit = 20;
-  let twitchAPI = `${baseURL}?client_id=${clientId}&game=${game}&limit=${limit}&offset=${offset}`;
-  let xhr = new XMLHttpRequest();
-  xhr.open(method, twitchAPI, true);
-  xhr.onload = (data) => {
-    if (xhr.status >= 200 && xhr.status < 400) {
-      data = JSON.parse(xhr.responseText);
+  $.ajax({
+    type: 'GET',
+    url: twitchApi,
+    data: {
+      contentType: myContentType,
+      client_id: clientId,
+      game: game,
+      limit: limit,
+      offset: offset,
+      language: language
+    },
+    success: (data) => {
+      console.log(data);
       callback(null, data);
-    } else {
+    },
+    error: (err) => {
       console.log(err);
+      callback(err);
     }
-  };
-  xhr.onerror = (err) => {
-    console.log(err);
-  };
-  xhr.send(null);
+  });
 }
 
 function i18nTitle(lang){
@@ -123,7 +131,6 @@ function infiniteScroll() {
 ready(() => {
   // Init 20 items from twitch API
   appendData();
-  console.log(title);
   // Infinite scroll
   infiniteScroll();
 });

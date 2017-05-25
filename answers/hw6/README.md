@@ -82,6 +82,26 @@ Pure Javascript to access the DOM can be faster as you can cut the overhead that
 ---
 
 ## 直播筆記
+* 瀏覽器兼容性
+	* 此為為何要用jQuery的理由之ㄧ，已幫忙我們處理不同瀏覽器的兼容性
+	* EX: 此作業的高度
+		* 可參考ponpon
+* 為什麼要用Vanilla JS
+	* trade-off(權衡/選擇)：考慮優缺點
+	* 缺點
+		* 不好維護
+		* 考慮瀏覽器兼容性問題
+		* 團隊合作困難
+	* 優點
+		* 效率高(考慮到程式規模，規模太小無法發揮作用)
+		* 節省網路流量(節省jQuery lib的空間)
+* 什麼時候需要用
+	* 考慮需求的場景
+		* 網速慢的地區
+		* 規模大的公司如google、FB
+		* 給手機使用的網站
+* appendChild()也可以拿來append HTML tag
+
 
 ---
 

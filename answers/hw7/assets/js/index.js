@@ -6,23 +6,6 @@ const langBtn = {
   'en': 'enBtn'
 };
 
-function removeBtnSelected(lang){
-  document.getElementById(langBtn['zh-tw']).classList.remove("selected");
-  document.getElementById(langBtn['en']).classList.remove("selected");
-  document.getElementById(langBtn[lang]).classList.add("selected");
-}
-
-function changeLang(lang){
-  // title reload
-  title.textContent = window.I18N[lang].TITLE;
-  // button reload
-  removeBtnSelected(lang);
-  // stream reload
-  language = lang;
-  offset = 0;
-  refreshTable();
-}
-
 function loadDataFromAPI(callback){
   const method = 'GET';
   const baseURL = 'https://api.twitch.tv/kraken/streams/';
@@ -53,7 +36,7 @@ function templateData(data) {
     avatarSrc = "assets/img/avt-default.png";
   }
   return (
-    `<div class="stream-item">
+    `<a href="${data.channel.url}" target="_blank" class="stream-item">
       <div class="preview">
         <img src="${previewSrc}" onload="this.style.opacity=1;">
       </div>
@@ -66,7 +49,7 @@ function templateData(data) {
           <p class="streamer">${data.channel.display_name}</p>
         </div>
       </div>
-    </div>`
+    </a>`
   );
 }
 
@@ -103,10 +86,27 @@ function infiniteScroll() {
   });
 }
 
+function removeBtnSelected(lang){
+  document.getElementById(langBtn['zh-tw']).classList.remove("selected");
+  document.getElementById(langBtn['en']).classList.remove("selected");
+  document.getElementById(langBtn[lang]).classList.add("selected");
+}
+
 function refreshTable() {
   //Walkaround way for refreshing container to implement i18n
   $( ".container" ).empty();
   mainLoad();
+}
+
+function changeLang(lang){
+  // title reload
+  title.textContent = window.I18N[lang].TITLE;
+  // button reload
+  removeBtnSelected(lang);
+  // stream reload
+  language = lang;
+  offset = 0;
+  refreshTable();
 }
 
 function mainLoad(){
@@ -118,5 +118,5 @@ function mainLoad(){
   });
 }
 
-// main function
+// main function init
 mainLoad();

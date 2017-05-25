@@ -1,4 +1,5 @@
 let offset = 0;
+let language = 'zh-tw';
 let title = document.getElementById("title");
 const langBtn = {
   'zh-tw': 'zhBtn',
@@ -12,11 +13,14 @@ function removeBtnSelected(lang){
 }
 
 function changeLang(lang){
-  // title
+  // title reload
   title.textContent = window.I18N[lang].TITLE;
-  //button
+  // button reload
   removeBtnSelected(lang);
-  // stream
+  // stream reload
+  language = lang;
+  offset = 0;
+  refreshTable();
 }
 
 function loadDataFromAPI(callback){
@@ -25,7 +29,7 @@ function loadDataFromAPI(callback){
   const clientId = '5rdlf3sosdxy8kjprfx9lebgznkncf';
   const game = 'League of Legends';
   const limit = 20;
-  let twitchAPI = `${baseURL}?client_id=${clientId}&game=${game}&limit=${limit}&offset=${offset}`;
+  let twitchAPI = `${baseURL}?client_id=${clientId}&game=${game}&limit=${limit}&offset=${offset}&language=${language}`;
   let xhr = new XMLHttpRequest();
   xhr.open(method, twitchAPI, true);
   xhr.onload = (data) => {
@@ -82,15 +86,6 @@ function appendData() {
   });
 }
 
-//$(document).ready
-function ready(fn) {
-  if (document.readyState != 'loading'){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
 function infiniteScroll() {
   let timer;
   const reservedHeight = 100;
@@ -108,11 +103,20 @@ function infiniteScroll() {
   });
 }
 
-// main function
-ready(() => {
-  // Init 20 items from twitch API
-  appendData();
-  // Infinite scroll
-  infiniteScroll();
-});
+function refreshTable() {
+  //Walkaround way for refreshing container to implement i18n
+  $( ".container" ).empty();
+  mainLoad();
+}
 
+function mainLoad(){
+  $(document).ready(() => {
+    // Init 20 items from twitch API
+    appendData();
+    // Infinite scroll
+    infiniteScroll();
+  });
+}
+
+// main function
+mainLoad();

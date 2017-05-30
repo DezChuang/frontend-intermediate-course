@@ -71,12 +71,19 @@
 
 ## Troubleshooting
 * 有時候會有重複的stream item出現，不知道是不是offset的地方有bug，還是API的問題
+>修正Huli大大抓到的bug，將infiniteScroll函式的timer宣告為global後可解決「切換語言後，infinite scroll重複發出request」的issue
+
 * 多次選取另外一種語言後transition會消失
 
 
 ---
 
 ## 直播筆記
+* 可透過語言檔的key/value來達到i18n的功能
+* 不同檔案可以透過window來傳遞變數
+* 將程式架構切得越好，增加新功能時所需要的effort越小
+* 下週作業有點難，可能要提早開始做
+
 
 ---
 

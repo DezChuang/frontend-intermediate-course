@@ -1,4 +1,5 @@
 let offset = 0;
+let timer = 0;
 let language = 'zh-tw';
 let title = document.getElementById("title");
 const langBtn = {
@@ -70,7 +71,6 @@ function appendData() {
 }
 
 function infiniteScroll() {
-  let timer;
   const reservedHeight = 100;
   const timeout = 100;
   //$(window).scroll(function()

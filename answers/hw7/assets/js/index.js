@@ -1,5 +1,4 @@
 let offset = 0;
-let timer = 0;
 let language = 'zh-tw';
 let title = document.getElementById("title");
 const langBtn = {
@@ -73,8 +72,8 @@ function appendData() {
 function infiniteScroll() {
   const reservedHeight = 100;
   const timeout = 100;
-  //$(window).scroll(function()
-  window.addEventListener('scroll', function() {
+  let timer;
+  $(window).scroll(function() {
     if(timer) {
       window.clearTimeout(timer);
     }
@@ -93,9 +92,8 @@ function removeBtnSelected(lang){
 }
 
 function refreshTable() {
-  //Walkaround way for refreshing container to implement i18n
   $( ".container" ).empty();
-  mainLoad();
+  appendData();
 }
 
 function changeLang(lang){
@@ -106,17 +104,13 @@ function changeLang(lang){
   // stream reload
   language = lang;
   offset = 0;
-  refreshTable();
-}
-
-function mainLoad(){
-  $(document).ready(() => {
-    // Init 20 items from twitch API
-    appendData();
-    // Infinite scroll
-    infiniteScroll();
-  });
+  refreshTable()
 }
 
 // main function init
-mainLoad();
+$(document).ready(() => {
+  // Init 20 items from twitch API
+  appendData();
+  // Infinite scroll
+  infiniteScroll();
+});

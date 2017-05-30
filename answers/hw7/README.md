@@ -71,10 +71,11 @@
 
 ## Troubleshooting
 * 有時候會有重複的stream item出現，不知道是不是offset的地方有bug，還是API的問題
->修正Huli大大抓到的bug，將infiniteScroll函式的timer宣告為global後可解決「切換語言後，infinite scroll重複發出request」的issue
 
 * 多次選取另外一種語言後transition會消失
 
+* 修正Huli大大抓到的「切換語言後，infinite scroll重複發出request」的bug
+> 查看log後，發現timer每次都會加2，原因為重複呼叫infiniteScroll這個function，造成重複發出request的問題。
 
 ---
 

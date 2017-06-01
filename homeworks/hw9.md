@@ -21,7 +21,7 @@
 
 ## 作業規範
 
-1. `index.html` 裡面只能引入一個 js 檔案
+1. 同上所述，不能發出任何 CSS 跟 JavaScript 的 Request
 
 ## 學習資源
 
@@ -30,6 +30,7 @@
 3. [gulp 入门指南](https://github.com/nimojs/gulp-book)
 4. [前端构建工具gulp入门教程](https://segmentfault.com/a/1190000000372547)
 5. [Gulp 入門教學 - 壓縮 JavaScript 與 CSS](http://abgne.tw/web/gulp/gulp-tuts-compress-js-css.html)
+6. [gulp-inline](https://github.com/ashaffer/gulp-inline)
 
 ## 自我練習
 

@@ -3,3 +3,5 @@ examples/
 README.html
 ignore/
 prepros-6.config
+node_modules/
+npm-debug.log

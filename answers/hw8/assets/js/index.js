@@ -1,3 +1,6 @@
+const $ = require("jquery");
+const I18N = require("./i18n");
+
 let offset = 0;
 let language = 'zh-tw';
 let title = document.getElementById("title");
@@ -5,6 +8,19 @@ const langBtn = {
   'zh-tw': 'zhBtn',
   'en': 'enBtn'
 };
+
+// main function init
+$(document).ready(() => {
+  appendData();
+  infiniteScroll();
+  $('#zhBtn').on('click', function(){
+    changeLang('zh-tw');
+  });
+
+  $('#enBtn').on('click', function(){
+    changeLang('en');
+  });
+});
 
 function loadDataFromAPI(callback){
   const method = 'GET';
@@ -98,7 +114,7 @@ function refreshTable() {
 
 function changeLang(lang){
   // title reload
-  title.textContent = window.I18N[lang].TITLE;
+  title.textContent = I18N[lang].TITLE;
   // button reload
   removeBtnSelected(lang);
   // stream reload
@@ -106,11 +122,3 @@ function changeLang(lang){
   offset = 0;
   refreshTable()
 }
-
-// main function init
-$(document).ready(() => {
-  // Init 20 items from twitch API
-  appendData();
-  // Infinite scroll
-  infiniteScroll();
-});

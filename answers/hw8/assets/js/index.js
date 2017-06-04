@@ -1,3 +1,5 @@
+import '../sass/index.sass';
+
 const $ = require("jquery");
 const I18N = require("./i18n");
 

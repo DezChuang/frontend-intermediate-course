@@ -37,6 +37,28 @@ $('#zhBtn').on('click', function(){
 
 * 參考[這篇](http://www.jianshu.com/p/42e11515c10f)所配置的devtool為`eval-source-map`，優點是增加打包速度與bundle.js的可讀性，缺點是bundle.js從275k增大為787k，是一個適合開發用但產品階段一定不要用的選項。
 
+* 將index.sass也import到index.js裡，html裡只剩下bundle.js
+
+```
+module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loader: 'style!css'
+      },
+      {
+        test: /\.sass$/,
+        loader: 'style-loader!css-loader!sass-loader'
+      },
+      {
+        test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
+        loader: 'file-loader?name=assets/img/[name].[ext]'
+      }
+    ]
+}
+```
+
+
 ---
 
 ## 可嘗試的修改
@@ -53,6 +75,8 @@ $('#zhBtn').on('click', function(){
 * [入门Webpack，看这篇就够了](http://www.jianshu.com/p/42e11515c10f)
 * [jQuery.click() vs onClick](https://stackoverflow.com/questions/12627443/jquery-click-vs-onclick/12627478#12627478)
 * [Uncaught ReferenceError: function is not defined with onclick](https://stackoverflow.com/questions/17378199/uncaught-referenceerror-function-is-not-defined-with-onclick)
+* [CSS与SASS在webpack中的使用](http://www.jianshu.com/p/a552aef2d1a1)
+
 
 ---
 

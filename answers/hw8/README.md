@@ -82,7 +82,35 @@ module: {
 
 ## 直播筆記
 
+* exports 多個東西範例：
 
+	```
+	module.exports{
+		add: add,
+		square: square
+	}
+	
+	var obj = require('./module.js');
+	console.log(obj.add(10, 20) + " " + obj.square(3));
+	
+	```
+
+* HTML裡的onclick="changeLang("lang-tw")"函式失效是因為被宣告成global的function，打包成bundle.js後會看不到，所以需要修改成如下方式：
+
+	```
+	$('.change_tw').click(() => {
+		changeLang('zh-tw');
+	});
+	```
+
+* 可使用`npm init -y`快速設定package.json，內容會留空
+
+* babel
+
+	有些瀏覽器可能無法識別ES6的語法，故需要babel幫忙轉譯成ES5，可在webpack中設定babel-loader。
+
+* package.json預設會去找node_modules下的東西
+* 可使用uglify plugin減少檔案大小與增進原始碼的安全性
 
 ---
 

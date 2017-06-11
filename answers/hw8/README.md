@@ -123,6 +123,8 @@ module: {
 
 之前初學react時，為了deploy也碰了一下webpack，並沒有找到比較好的文件參考，讓我一直對webpack有一種「好像沒那麼熟」的障礙，每次都會下意識避免使用webpack，直到寫完這次作業，終於能看懂`webpack.config.js`的基本設定，有一種又邁進一步的愉悅，才真正從排斥到讚歎這項發明，很多文件都說明react生態圈的產生，是為了應付現代越來越複雜的web app，做小型專案時都因殺雞用牛刀而覺得的刀很笨重很難使，真的要打BOSS時才發現原來是一把「+8神器」啊！
 
+[Jun. 11, 2017更新] 在Front-End Developers Taiwan看到kinanson大大分享的一篇很詳細的[Webpack2教學](https://dotblogs.com.tw/kinanson/2017/06/11/124206#6)，筆記在此之後有需要回來研究。
+
 ---
 
 ## Demo

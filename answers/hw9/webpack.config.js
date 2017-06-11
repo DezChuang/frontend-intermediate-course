@@ -4,11 +4,21 @@ module.exports = {
   devtool: 'eval-source-map',
   entry:  __dirname + "/assets/js/index.js",
   output: {
-    path: __dirname + "/build", //output file directory
+    path: __dirname + "/dist/", //output file directory
     filename: "bundle.js" //pack all .js file into bundle.js
   },
   module: {
     loaders: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+      },
       {
         test: /\.css$/,
         loader: 'style!css'
@@ -23,4 +33,9 @@ module.exports = {
       }
     ]
   }
+}
+
+
+module: {
+
 }

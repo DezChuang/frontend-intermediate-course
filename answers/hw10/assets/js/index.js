@@ -1,11 +1,11 @@
 import '../sass/index.sass';
 
-const $ = require("jquery");
-const I18N = require("./i18n");
+const $ = require('jquery');
+const I18N = require('./i18n');
 
 let offset = 0;
 let language = 'zh-tw';
-let title = document.getElementById("title");
+let title = document.getElementById('title');
 const langBtn = {
   'zh-tw': 'zhBtn',
   'en': 'enBtn'
@@ -38,7 +38,7 @@ function loadDataFromAPI(callback){
       data = JSON.parse(xhr.responseText);
       callback(null, data);
     } else {
-      console.log(err);
+      console.log('Error');
     }
   };
   xhr.onerror = (err) => {
@@ -51,7 +51,7 @@ function templateData(data) {
   let avatarSrc = data.channel.logo;
   let previewSrc = data.preview.medium;
   if(avatarSrc == null){
-    avatarSrc = "assets/img/avt-default.png";
+    avatarSrc = 'assets/img/avt-default.png';
   }
   return (
     `<a href="${data.channel.url}" target="_blank" class="stream-item">
@@ -74,7 +74,7 @@ function templateData(data) {
 function appendData() {
   loadDataFromAPI((err, data) => {
     if (err) {
-        console.log(err);
+      console.log(err);
     } else {
       //ES6 syntax for `const streams = data.streams;`
       const {streams} = data;
@@ -104,13 +104,13 @@ function infiniteScroll() {
 }
 
 function removeBtnSelected(lang){
-  document.getElementById(langBtn['zh-tw']).classList.remove("selected");
-  document.getElementById(langBtn['en']).classList.remove("selected");
-  document.getElementById(langBtn[lang]).classList.add("selected");
+  document.getElementById(langBtn['zh-tw']).classList.remove('selected');
+  document.getElementById(langBtn['en']).classList.remove('selected');
+  document.getElementById(langBtn[lang]).classList.add('selected');
 }
 
 function refreshTable() {
-  $( ".container" ).empty();
+  $( '.container' ).empty();
   appendData();
 }
 
@@ -122,5 +122,5 @@ function changeLang(lang){
   // stream reload
   language = lang;
   offset = 0;
-  refreshTable()
+  refreshTable();
 }

@@ -1,4 +1,4 @@
 // en.js
 module.exports = {
-  "TITLE": "The Streams in English"
-}
+  'TITLE': 'The Streams in English'
+};

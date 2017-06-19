@@ -1,7 +1,7 @@
-var gulp         = require('gulp'),
-    gulpSequence = require('gulp-sequence'),
-    inline       = require('gulp-inline'),
-    uglify       = require('gulp-uglify');
+var gulp         = require('gulp');
+var gulpSequence = require('gulp-sequence');
+var inline       = require('gulp-inline');
+var uglify       = require('gulp-uglify');
 
 // Inline uglify bunfle.js into html
 gulp.task('inline-js', function() {

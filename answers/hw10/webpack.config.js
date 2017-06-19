@@ -1,11 +1,9 @@
-var webpack = require('webpack');
-
 module.exports = {
   devtool: 'eval-source-map',
-  entry:  __dirname + "/assets/js/index.js",
+  entry:  __dirname + '/assets/js/index.js',
   output: {
-    path: __dirname + "/dist/", //output file directory
-    filename: "bundle.js" //pack all .js file into bundle.js
+    path: __dirname + '/dist/', //output file directory
+    filename: 'bundle.js' //pack all .js file into bundle.js
   },
   module: {
     loaders: [
@@ -33,9 +31,4 @@ module.exports = {
       }
     ]
   }
-}
-
-
-module: {
-
-}
+};

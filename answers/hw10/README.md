@@ -27,6 +27,17 @@
 	```
 透過在rules裡新增`"no-console": "off"`解決([參考](https://stackoverflow.com/questions/34215526/eslint-how-to-disable-unexpected-console-statement-in-node-js))
 
+* 看Slack上各位大大建議也把設定檔檢查，所以把原本ignore掉的`webpack.config.js`與`gulpfile.js`也檢查一遍。
+
+* webpack.config.js裡可以將沒使用到的`var webpack = require(‘webpack’)`移除，而針對`3:11  error  '__dirname' is not defined  no-undef`這一段，則是在`.eslintrc.json`內再加上如下設定：
+
+	```
+		"env": {
+			"node": true
+		}
+	```
+
+	因為__dirname是在node裡定義的變數，指當前目錄的絕對路徑。
 
 ---
 

@@ -56,7 +56,7 @@
 
 關於團隊程式碼的管理，前幾天面試被震撼教育了一番。對方考了一題「寫一個function能將傳入的數字加逗號回傳」，面試官頻繁地提示到要寫出「對團隊有貢獻的程式碼」，天真如我以為只是加@params或註解這樣，寫法就參考[網路解法](https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript)，`/\B(?=(\d{3})+(?!\d))/g`這串正規表達式有看沒有懂，果然提交之後就變炮灰了，別說`\B`網路上的解釋很難理解，連後面的`?=`或`?!`其實也不懂，就被示以一個很簡單的道理：「一段連你也無法解釋的程式碼，對團隊而言品質是不夠的。」就是有發現自己盲點的感覺。
 
-Anyway扯遠了，所以了解ESLint或Standard這類的標準之後，又更能知道提高程式碼品質的方法。終於也完成十份作業，太感人，也非常謝謝Huli老師的免費教學，之後另外寫一篇心得文吧。
+Anyway扯遠了，所以了解ESLint或Standard這類的標準之後，又更能知道提高程式碼品質的方法。終於也完成十份作業，太感人，也非常謝謝Huli老師的免費教學，之後另外寫一篇[心得文](http://dez.logdown.com/posts/2017/06/19/huli-frontend-intermediate-course)吧。
 
 ---
 
